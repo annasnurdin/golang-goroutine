@@ -16,3 +16,15 @@ func TestGoroutine(t *testing.T) {
 
 	time.Sleep(1 * time.Second)
 }
+
+func DisplayFor(number int) {
+	fmt.Println("Display number: ", number)
+}
+
+func TestBanyakGoroutine(t *testing.T) {
+	for i := 0; i < 100000; i++ {
+		go DisplayFor(i)
+	}
+
+	time.Sleep(10 * time.Second)
+}
