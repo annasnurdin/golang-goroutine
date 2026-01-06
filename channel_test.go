@@ -26,3 +26,19 @@ func TestMembuatChannel(t *testing.T) {
 
 	time.Sleep(2 * time.Second)
 }
+
+func Response(channel chan string) {
+	time.Sleep(2 * time.Second)
+	channel <- "Annas"
+}
+
+func TestChannelParam(t *testing.T) {
+	channel := make(chan string)
+	defer close(channel)
+
+	go Response(channel)
+	data := <-channel
+	fmt.Println(data)
+
+	time.Sleep(2 * time.Second)
+}
