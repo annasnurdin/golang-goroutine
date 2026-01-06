@@ -11,7 +11,7 @@ func PrintHellow() {
 }
 
 func TestGoroutine(t *testing.T) {
-	go PrintHellow()
+	go PrintHellow() // kalau ada return value, dia tidak bisa ditangkap
 	fmt.Println("After")
 
 	time.Sleep(1 * time.Second)
